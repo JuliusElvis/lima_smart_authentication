@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         reg_activity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openRegActivity();
+                openHomeActivity();
             }
         });
     }

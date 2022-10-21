@@ -52,7 +52,6 @@ public class DocDisplayActivity extends AppCompatActivity {
     }
 
     public void fetchUsers(String key){
-        Toast.makeText(DocDisplayActivity.this,"keep tring", Toast.LENGTH_SHORT).show();
         apiInterface = APIClient.getApiClient().create(ApiInterface.class);
         Call<List<registeredDocs>> call = apiInterface.getUser(key);
         call.enqueue(new Callback<List<registeredDocs>>() {

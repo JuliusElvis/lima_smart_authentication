@@ -16,7 +16,7 @@
     <string name="AlreadyRegistered">Already Registered??</string>
     <string name="ForgotPass">Forgot Password??</string>
     <string name="Email">Email</string>
-    <string name="cowName">Cow Name:</string>
+    <string name="cowName">Animal Name:</string>
     <string name="typeOfAnimal">Type of Animal:</string>
 
     <string name="Deworming1">1st Deworming:When grazing begins</string>

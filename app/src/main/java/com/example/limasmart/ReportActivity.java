@@ -74,22 +74,26 @@ public class ReportActivity extends AppCompatActivity {
 
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
-        st = getIntent().getExtras().getString("Value");
+        //intent to store the name of the animal
+        st = getIntent().getExtras().getString("name");
         String sv = getResources().getString(R.string.cowName);
         sw = sv+st;
         tv.setText(sw);
 
-        st2 = getIntent().getExtras().getString("Value1");
+        //intent to store the type of animal
+        st2 = getIntent().getExtras().getString("animal");
         st3 = getResources().getString(R.string.typeOfAnimal);
         sp = st3 + st2;
         tv1.setText(sp);
 
-        st4 = getIntent().getExtras().getString("Value2");
+        //intent to store the gender
+        st4 = getIntent().getExtras().getString("gender");
         st5 = getResources().getString(R.string.gender);
         sp1 = st5+st4;
         tv2.setText(sp1);
 
-        st6 = getIntent().getExtras().getString("Value3");
+        //intent to store the date of birth
+        st6 = getIntent().getExtras().getString("date");
         st7 = getResources().getString(R.string.DOB);
         sp2 = st7 + st6;
         tv3.setText(sp2);
@@ -107,477 +111,14 @@ public class ReportActivity extends AppCompatActivity {
     }
     public void process(){
         if (st2.equals("Cow")){
-            st8 = getResources().getString(R.string.Deworming1);
-            tv4.setText(st8);
-
-            st9 = getResources().getString(R.string.Deworming2);
-            tv6.setText(st9);
-
-            st10 = getResources().getString(R.string.calfTag);
-            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-            try {
-                Date myDate = sdf.parse(st6);
-                Calendar c = Calendar.getInstance();
-                c.setTime(myDate);
-                c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 20);
-                Date dt = c.getTime();
-                String dt1 = sdf.format(dt);
-                st11 = st10 + dt1;
-                tv7.setText(st11);
-            }catch (ParseException e){
-                e.printStackTrace();
-            }
-
-            //SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-            try {
-                Date myDate1 = sdf.parse(st6);
-                Calendar c = Calendar.getInstance();
-                c.setTime(myDate1);
-                c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 90);
-                Date dt = c.getTime();
-                String dt1 = sdf.format(dt);
-                st12 = getResources().getString(R.string.IBR);
-                st13 = st12 +dt1;
-                tv8.setText(st13);
-                st14 = getResources().getString(R.string.Theileriosis);
-                st15 = st14+dt1;
-                tv9.setText(st15);
-            }catch (ParseException e){
-                e.printStackTrace();
-            }
-            st16 = getResources().getString(R.string.Disbudding);
-            tv10.setText(st16);
-            st17 = getResources().getString(R.string.Castrating);
-            tv11.setText(st17);
-            st18 = getResources().getString(R.string.Weaning);
-            tv12.setText(st18);
-            try {
-                Date myDate1 = sdf.parse(st6);
-                Calendar c = Calendar.getInstance();
-                c.setTime(myDate1);
-                c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 120);
-                Date dt = c.getTime();
-                String dt1 = sdf.format(dt);
-                st19 = getResources().getString(R.string.Anthrax);
-                st20 = st19 +dt1;
-                tv13.setText(st20);
-
-                st21=getResources().getString(R.string.Brucellosis);
-                st22 = st21+dt1;
-                tv14.setText(st22);
-
-                st23 = getResources().getString(R.string.footAndMouth);
-                st24 = st23 + dt1;
-                tv15.setText(st24);
-
-            }catch (ParseException e){
-                e.printStackTrace();
-            }
-
-            try {
-                Date myDate = sdf.parse(st6);
-                Calendar c = Calendar.getInstance();
-                c.setTime(myDate);
-                c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 180);
-                Date dt = c.getTime();
-                String dt1 = sdf.format(dt);
-                st25 = getResources().getString(R.string.blackQuarter);
-                st26 = st25 + dt1;
-                tv16.setText(st26);
-                st27 = getResources().getString(R.string.septicaemia);
-                st28 = st27 + dt1;
-                tv17.setText(st28);
-                st34 = getResources().getString(R.string.rinderPest);
-                st35 = st34+dt1;
-                tv18.setText(st35);
-
-            }catch (ParseException e){
-                e.printStackTrace();
-            }
-
-        }else {
-            if (st2.equals("Sheep/Goats")){
-                st8 = getResources().getString(R.string.Deworming1);
-                tv4.setText(st8);
-
-                st9 = getResources().getString(R.string.Deworming2);
-                tv6.setText(st9);
-
-                st10 = getResources().getString(R.string.earTagging);
-                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-                try {
-                    Date myDate = sdf.parse(st6);
-                    Calendar c = Calendar.getInstance();
-                    c.setTime(myDate);
-                    c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 20);
-                    Date dt = c.getTime();
-                    String dt1 = sdf.format(dt);
-                    st11 = st10 + dt1;
-                    tv7.setText(st11);
-                }catch (ParseException e){
-                    e.printStackTrace();
-                }
-
-                try {
-                    Date myDate1 = sdf.parse(st6);
-                    Calendar c = Calendar.getInstance();
-                    c.setTime(myDate1);
-                    c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 90);
-                    Date dt = c.getTime();
-                    String dt1 = sdf.format(dt);
-                    st12 = getResources().getString(R.string.goatPox);
-                    st13 = st12 +dt1;
-                    tv8.setText(st13);
-                    st14 = getResources().getString(R.string.ccpp);
-                    st15 = st14+dt1;
-                    tv9.setText(st15);
-                }catch (ParseException e){
-                    e.printStackTrace();
-                }
-                try {
-                    Date myDate1 = sdf.parse(st6);
-                    Calendar c = Calendar.getInstance();
-                    c.setTime(myDate1);
-                    c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 2);
-                    Date dt = c.getTime();
-                    String dt1 = sdf.format(dt);
-                    st30 = getResources().getString(R.string.tetanus);
-                    st16 = st30 +dt1;
-                    tv10.setText(st16);
-
-                }catch (ParseException e){
-                    e.printStackTrace();
-                }
-                try {
-                    Date myDate1 = sdf.parse(st6);
-                    Calendar c = Calendar.getInstance();
-                    c.setTime(myDate1);
-                    c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 120);
-                    Date dt = c.getTime();
-                    String dt1 = sdf.format(dt);
-                    st19 = getResources().getString(R.string.Enterotoxaemia);
-                    st20 = st19 +dt1;
-                    tv13.setText(st20);
-
-                    st21=getResources().getString(R.string.Brucellosis);
-                    st22 = st21+dt1;
-                    tv14.setText(st22);
-
-                    st23 = getResources().getString(R.string.footAndMouth);
-                    st24 = st23 + dt1;
-                    tv15.setText(st24);
-
-                    st33 = getResources().getString(R.string.multiVax);
-                    st18 = st33 + dt1;
-                    tv12.setText(st18);
-
-
-                }catch (ParseException e){
-                    e.printStackTrace();
-                }
-
-                try {
-                    Date myDate = sdf.parse(st6);
-                    Calendar c = Calendar.getInstance();
-                    c.setTime(myDate);
-                    c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 180);
-                    Date dt = c.getTime();
-                    String dt1 = sdf.format(dt);
-                    st25 = getResources().getString(R.string.blackQuarter);
-                    st26 = st25 + dt1;
-                    tv16.setText(st26);
-                    st27 = getResources().getString(R.string.septicaemia);
-                    st28 = st27 + dt1;
-                    tv17.setText(st28);
-                    st31 = getResources().getString(R.string.anthrax);
-                    st35 = st31 + dt1;
-                    tv18.setText(st35);
-                    st32 = getResources().getString(R.string.rinderPest);
-                    st17 =st32 + dt1;
-                    tv11.setText(st17);
-
-                }catch (ParseException e){
-                    e.printStackTrace();
-                }
-
-            }else {
-                if (st2.equals("Poultry")){
-                    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-                    try {
-                        Date myDate = sdf.parse(st6);
-                        Calendar c = Calendar.getInstance();
-                        c.setTime(myDate);
-                        c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 1);
-                        Date dt = c.getTime();
-                        String dt1 = sdf.format(dt);
-                        st10 = getResources().getString(R.string.Mareks);
-                        st8 = st10 + dt1;
-                        tv4.setText(st8);
-                    }catch (ParseException e){
-                        e.printStackTrace();
-                    }
-                    try {
-                        Date myDate = sdf.parse(st6);
-                        Calendar c = Calendar.getInstance();
-                        c.setTime(myDate);
-                        c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 6);
-                        Date dt = c.getTime();
-                        String dt1 = sdf.format(dt);
-                        st12 = getResources().getString(R.string.NCD);
-                        st9 = st12 + dt1;
-                        tv6.setText(st9);
-                    }catch (ParseException e){
-                        e.printStackTrace();
-                    }
-                    try {
-                        Date myDate = sdf.parse(st6);
-                        Calendar c = Calendar.getInstance();
-                        c.setTime(myDate);
-                        c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 10);
-                        Date dt = c.getTime();
-                        String dt1 = sdf.format(dt);
-                        st14 = getResources().getString(R.string.Gumboro);
-                        st11 = st14 + dt1;
-                        tv7.setText(st11);
-                    }catch (ParseException e){
-                        e.printStackTrace();
-                    }
-                    try {
-                        Date myDate = sdf.parse(st6);
-                        Calendar c = Calendar.getInstance();
-                        c.setTime(myDate);
-                        c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 18);
-                        Date dt = c.getTime();
-                        String dt1 = sdf.format(dt);
-                        st19 = getResources().getString(R.string.Gumboro2);
-                        st13 = st19 + dt1;
-                        tv8.setText(st13);
-                        st21 = getResources().getString(R.string.IBD);
-                        st15 = st21 + dt1;
-                        tv9.setText(st15);
-                    }catch (ParseException e){
-                        e.printStackTrace();
-                    }
-
-                    try {
-                        Date myDate = sdf.parse(st6);
-                        Calendar c = Calendar.getInstance();
-                        c.setTime(myDate);
-                        c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 21);
-                        Date dt = c.getTime();
-                        String dt1 = sdf.format(dt);
-                        st23 = getResources().getString(R.string.Newcastle);
-                        st16 = st23 + dt1;
-                        tv10.setText(st16);
-                    }catch (ParseException e){
-                        e.printStackTrace();
-                    }
-                    try {
-                        Date myDate = sdf.parse(st6);
-                        Calendar c = Calendar.getInstance();
-                        c.setTime(myDate);
-                        c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 28);
-                        Date dt = c.getTime();
-                        String dt1 = sdf.format(dt);
-                        st25 = getResources().getString(R.string.NCD);
-                        st17 = st25 + dt1;
-                        tv11.setText(st17);
-                    }catch (ParseException e){
-                        e.printStackTrace();
-                    }
-                    try {
-                        Date myDate = sdf.parse(st6);
-                        Calendar c = Calendar.getInstance();
-                        c.setTime(myDate);
-                        c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 30);
-                        Date dt = c.getTime();
-                        String dt1 = sdf.format(dt);
-                        st27 = getResources().getString(R.string.bursal);
-                        st18 = st27 + dt1;
-                        tv12.setText(st18);
-                    }catch (ParseException e){
-                        e.printStackTrace();
-                    }
-                    try {
-                        Date myDate = sdf.parse(st6);
-                        Calendar c = Calendar.getInstance();
-                        c.setTime(myDate);
-                        c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 42);
-                        Date dt = c.getTime();
-                        String dt1 = sdf.format(dt);
-                        st34 = getResources().getString(R.string.fowlPox);
-                        st20 = st34 + dt1;
-                        tv13.setText(st20);
-
-                        st36 = getResources().getString(R.string.Bronchitis);
-                        st22 = st36+dt1;
-                        tv14.setText(st22);
-
-                        st37 = getResources().getString(R.string.fowlCholera);
-                        st24 = st37 + dt1;
-                        tv15.setText(st24);
-
-                    }
-                    catch (ParseException e){
-                        e.printStackTrace();
-                    }
-                    try {
-                        Date myDate = sdf.parse(st6);
-                        Calendar c = Calendar.getInstance();
-                        c.setTime(myDate);
-                        c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 56);
-                        Date dt = c.getTime();
-                        String dt1 = sdf.format(dt);
-                        st38 = getResources().getString(R.string.Newcastle2);
-                        st26 = st38 + dt1;
-                        tv16.setText(st26);
-
-                        st39 =getResources().getString(R.string.fowlTyphoid);
-                        st28 = st39 + dt1;
-                        tv17.setText(st28);
-                    }catch (ParseException e){
-                        e.printStackTrace();
-                    }
-                    try {
-                        Date myDate = sdf.parse(st6);
-                        Calendar c = Calendar.getInstance();
-                        c.setTime(myDate);
-                        c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 56);
-                        Date dt = c.getTime();
-                        String dt1 = sdf.format(dt);
-                        st40 = getResources().getString(R.string.Deworm);
-                        st35 = st40 + dt1;
-                        tv18.setText(st35);
-
-                    }catch (ParseException e){
-                        e.printStackTrace();
-                    }
-
-                }else {
-                    if (st2.equals("Pigs")){
-                        st8 = getResources().getString(R.string.afterBirth);
-                        tv4.setText(st8);
-
-                        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-                        try {
-                            Date myDate = sdf.parse(st6);
-                            Calendar c = Calendar.getInstance();
-                            c.setTime(myDate);
-                            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 3);
-                            Date dt = c.getTime();
-                            String dt1 = sdf.format(dt);
-                            st10 = getResources().getString(R.string.iron);
-                            st9 = st10 + dt1;
-                            tv6.setText(st9);
-                        }catch (ParseException e){
-                            e.printStackTrace();
-                        }
-
-                        try {
-                            Date myDate = sdf.parse(st6);
-                            Calendar c = Calendar.getInstance();
-                            c.setTime(myDate);
-                            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 7);
-                            Date dt = c.getTime();
-                            String dt1 = sdf.format(dt);
-                            st12 = getResources().getString(R.string.Castration);
-                            st11 = st12 + dt1;
-                            tv7.setText(st11);
-
-                            st14 = getResources().getString(R.string.teethClipping);
-                            st13 = st14 + dt1;
-                            tv8.setText(st13);
-
-                            st19 = getResources().getString(R.string.tailDocking);
-                            st15 = st19 + dt1;
-                            tv9.setText(st15);
-                        }catch (ParseException e){
-                            e.printStackTrace();
-                        }
-
-                        st16= getResources().getString(R.string.weaning);
-                        tv10.setText(st16);
-
-                        try {
-                            Date myDate = sdf.parse(st6);
-                            Calendar c = Calendar.getInstance();
-                            c.setTime(myDate);
-                            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 28);
-                            Date dt = c.getTime();
-                            String dt1 = sdf.format(dt);
-                            st19 = getResources().getString(R.string.prrs);
-                            st17 = st19 + dt1;
-                            tv11.setText(st17);
-
-                            st21 = getResources().getString(R.string.rhinitis);
-                            st18 = st21 + dt1;
-                            tv12.setText(st18);
-                        }catch (ParseException e){
-                            e.printStackTrace();
-                        }
-
-                        try {
-                            Date myDate = sdf.parse(st6);
-                            Calendar c = Calendar.getInstance();
-                            c.setTime(myDate);
-                            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 60);
-                            Date dt = c.getTime();
-                            String dt1 = sdf.format(dt);
-                            st23 = getResources().getString(R.string.glassersVaccine);
-                            st20 = st23 + dt1;
-                            tv13.setText(st20);
-
-                            st25 = getResources().getString(R.string.swineFever);
-                            st22 = st25 + dt1;
-                            tv14.setText(st22);
-
-
-                        }catch (ParseException e){
-                            e.printStackTrace();
-                        }
-
-                        try {
-                            Date myDate = sdf.parse(st6);
-                            Calendar c = Calendar.getInstance();
-                            c.setTime(myDate);
-                            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 90);
-                            Date dt = c.getTime();
-                            String dt1 = sdf.format(dt);
-                            st27 = getResources().getString(R.string.swineFever2);
-                            st24 = st27 + dt1;
-                            tv15.setText(st24);
-
-                            st34 = getResources().getString(R.string.parvoVirus);
-                            st26 = st34 + dt1;
-                            tv16.setText(st26);
-
-                            st36 = getResources().getString(R.string.swineInfluenza);
-                            st28 = st36 + dt1;
-                            tv17.setText(st28);
-
-
-                        }catch (ParseException e){
-                            e.printStackTrace();
-                        }
-
-                        try {
-                            Date myDate = sdf.parse(st6);
-                            Calendar c = Calendar.getInstance();
-                            c.setTime(myDate);
-                            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 120);
-                            Date dt = c.getTime();
-                            String dt1 = sdf.format(dt);
-                            st37 = getResources().getString(R.string.footAndMouth);
-                            st35 = st37 + dt1;
-                            tv18.setText(st35);
-                        }catch (ParseException e){
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
+            cowScheduler();
+        }else if (st2.equals("Sheep/Goats")){
+            sheepScheduler();
+        }else if (st2.equals("Poultry")){
+            poultryScheduler();
+        }else if (st2.equals("Pigs")){
+            pigsScheduler();
         }
-
 
     }
     public void onBackPressed(){
@@ -656,5 +197,472 @@ public class ReportActivity extends AppCompatActivity {
 
 
     }
+
+    public void cowScheduler(){
+        st8 = getResources().getString(R.string.Deworming1);
+        tv4.setText(st8);
+
+        st9 = getResources().getString(R.string.Deworming2);
+        tv6.setText(st9);
+
+        st10 = getResources().getString(R.string.calfTag);
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 20);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st11 = st10 + dt1;
+            tv7.setText(st11);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        //SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        try {
+            Date myDate1 = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate1);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 90);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st12 = getResources().getString(R.string.IBR);
+            st13 = st12 +dt1;
+            tv8.setText(st13);
+            st14 = getResources().getString(R.string.Theileriosis);
+            st15 = st14+dt1;
+            tv9.setText(st15);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+        st16 = getResources().getString(R.string.Disbudding);
+        tv10.setText(st16);
+        st17 = getResources().getString(R.string.Castrating);
+        tv11.setText(st17);
+        st18 = getResources().getString(R.string.Weaning);
+        tv12.setText(st18);
+        try {
+            Date myDate1 = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate1);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 120);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st19 = getResources().getString(R.string.Anthrax);
+            st20 = st19 +dt1;
+            tv13.setText(st20);
+
+            st21=getResources().getString(R.string.Brucellosis);
+            st22 = st21+dt1;
+            tv14.setText(st22);
+
+            st23 = getResources().getString(R.string.footAndMouth);
+            st24 = st23 + dt1;
+            tv15.setText(st24);
+
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 180);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st25 = getResources().getString(R.string.blackQuarter);
+            st26 = st25 + dt1;
+            tv16.setText(st26);
+            st27 = getResources().getString(R.string.septicaemia);
+            st28 = st27 + dt1;
+            tv17.setText(st28);
+            st34 = getResources().getString(R.string.rinderPest);
+            st35 = st34+dt1;
+            tv18.setText(st35);
+
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+    }
+    public void sheepScheduler(){
+        st8 = getResources().getString(R.string.Deworming1);
+        tv4.setText(st8);
+
+        st9 = getResources().getString(R.string.Deworming2);
+        tv6.setText(st9);
+
+        st10 = getResources().getString(R.string.earTagging);
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 20);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st11 = st10 + dt1;
+            tv7.setText(st11);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        try {
+            Date myDate1 = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate1);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 90);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st12 = getResources().getString(R.string.goatPox);
+            st13 = st12 +dt1;
+            tv8.setText(st13);
+            st14 = getResources().getString(R.string.ccpp);
+            st15 = st14+dt1;
+            tv9.setText(st15);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+        try {
+            Date myDate1 = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate1);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 2);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st30 = getResources().getString(R.string.tetanus);
+            st16 = st30 +dt1;
+            tv10.setText(st16);
+
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+        try {
+            Date myDate1 = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate1);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 120);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st19 = getResources().getString(R.string.Enterotoxaemia);
+            st20 = st19 +dt1;
+            tv13.setText(st20);
+
+            st21=getResources().getString(R.string.Brucellosis);
+            st22 = st21+dt1;
+            tv14.setText(st22);
+
+            st23 = getResources().getString(R.string.footAndMouth);
+            st24 = st23 + dt1;
+            tv15.setText(st24);
+
+            st33 = getResources().getString(R.string.multiVax);
+            st18 = st33 + dt1;
+            tv12.setText(st18);
+
+
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 180);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st25 = getResources().getString(R.string.blackQuarter);
+            st26 = st25 + dt1;
+            tv16.setText(st26);
+            st27 = getResources().getString(R.string.septicaemia);
+            st28 = st27 + dt1;
+            tv17.setText(st28);
+            st31 = getResources().getString(R.string.anthrax);
+            st35 = st31 + dt1;
+            tv18.setText(st35);
+            st32 = getResources().getString(R.string.rinderPest);
+            st17 =st32 + dt1;
+            tv11.setText(st17);
+
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+    }
+    public void poultryScheduler(){
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 1);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st10 = getResources().getString(R.string.Mareks);
+            st8 = st10 + dt1;
+            tv4.setText(st8);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 6);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st12 = getResources().getString(R.string.NCD);
+            st9 = st12 + dt1;
+            tv6.setText(st9);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 10);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st14 = getResources().getString(R.string.Gumboro);
+            st11 = st14 + dt1;
+            tv7.setText(st11);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 18);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st19 = getResources().getString(R.string.Gumboro2);
+            st13 = st19 + dt1;
+            tv8.setText(st13);
+            st21 = getResources().getString(R.string.IBD);
+            st15 = st21 + dt1;
+            tv9.setText(st15);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 21);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st23 = getResources().getString(R.string.Newcastle);
+            st16 = st23 + dt1;
+            tv10.setText(st16);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 28);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st25 = getResources().getString(R.string.NCD);
+            st17 = st25 + dt1;
+            tv11.setText(st17);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 30);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st27 = getResources().getString(R.string.bursal);
+            st18 = st27 + dt1;
+            tv12.setText(st18);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 42);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st34 = getResources().getString(R.string.fowlPox);
+            st20 = st34 + dt1;
+            tv13.setText(st20);
+
+            st36 = getResources().getString(R.string.Bronchitis);
+            st22 = st36+dt1;
+            tv14.setText(st22);
+
+            st37 = getResources().getString(R.string.fowlCholera);
+            st24 = st37 + dt1;
+            tv15.setText(st24);
+
+        }
+        catch (ParseException e){
+            e.printStackTrace();
+        }
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 56);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st38 = getResources().getString(R.string.Newcastle2);
+            st26 = st38 + dt1;
+            tv16.setText(st26);
+
+            st39 =getResources().getString(R.string.fowlTyphoid);
+            st28 = st39 + dt1;
+            tv17.setText(st28);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 56);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st40 = getResources().getString(R.string.Deworm);
+            st35 = st40 + dt1;
+            tv18.setText(st35);
+
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+    }
+    public void pigsScheduler(){
+        st8 = getResources().getString(R.string.afterBirth);
+        tv4.setText(st8);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 3);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st10 = getResources().getString(R.string.iron);
+            st9 = st10 + dt1;
+            tv6.setText(st9);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 7);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st12 = getResources().getString(R.string.Castration);
+            st11 = st12 + dt1;
+            tv7.setText(st11);
+
+            st14 = getResources().getString(R.string.teethClipping);
+            st13 = st14 + dt1;
+            tv8.setText(st13);
+
+            st19 = getResources().getString(R.string.tailDocking);
+            st15 = st19 + dt1;
+            tv9.setText(st15);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        st16= getResources().getString(R.string.weaning);
+        tv10.setText(st16);
+
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 28);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st19 = getResources().getString(R.string.prrs);
+            st17 = st19 + dt1;
+            tv11.setText(st17);
+
+            st21 = getResources().getString(R.string.rhinitis);
+            st18 = st21 + dt1;
+            tv12.setText(st18);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 60);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st23 = getResources().getString(R.string.glassersVaccine);
+            st20 = st23 + dt1;
+            tv13.setText(st20);
+
+            st25 = getResources().getString(R.string.swineFever);
+            st22 = st25 + dt1;
+            tv14.setText(st22);
+
+
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 90);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st27 = getResources().getString(R.string.swineFever2);
+            st24 = st27 + dt1;
+            tv15.setText(st24);
+
+            st34 = getResources().getString(R.string.parvoVirus);
+            st26 = st34 + dt1;
+            tv16.setText(st26);
+
+            st36 = getResources().getString(R.string.swineInfluenza);
+            st28 = st36 + dt1;
+            tv17.setText(st28);
+
+
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        try {
+            Date myDate = sdf.parse(st6);
+            Calendar c = Calendar.getInstance();
+            c.setTime(myDate);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + 120);
+            Date dt = c.getTime();
+            String dt1 = sdf.format(dt);
+            st37 = getResources().getString(R.string.footAndMouth);
+            st35 = st37 + dt1;
+            tv18.setText(st35);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+    }
+
 }
 

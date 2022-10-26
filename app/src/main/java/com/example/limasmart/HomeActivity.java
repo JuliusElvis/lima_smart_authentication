@@ -16,10 +16,19 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         vetReg = findViewById(R.id.vetReg);
+        animalCalendar = findViewById(R.id.animalCalendar);
+
         vetReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openActivity();
+            }
+        });
+
+        animalCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               openCalendarActivity();
             }
         });
 
@@ -29,5 +38,16 @@ public class HomeActivity extends AppCompatActivity {
     public void openActivity(){
             Intent intent = new Intent(this,DocDisplayActivity.class);
             startActivity(intent);
+    }
+
+    public void openCalendarActivity(){
+        Intent intent = new Intent(this,calendarActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        finish();
     }
 }

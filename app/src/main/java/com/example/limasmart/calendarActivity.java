@@ -3,6 +3,7 @@ package com.example.limasmart;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -44,6 +45,7 @@ public class calendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+
     mySpinner = findViewById(R.id.spinner);
     ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(calendarActivity.this,
             android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.animalName));
@@ -91,12 +93,27 @@ public class calendarActivity extends AppCompatActivity {
         reportGen.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            //openActivity();
+            openActivity();
         }
 
     });
 
 }
+
+    private void openActivity() {
+        int radioId = radioGroup.getCheckedRadioButtonId();
+        radioButton = findViewById(radioId);
+        c= String.valueOf(radioButton.getText());
+
+
+        Intent intent = new Intent(this, ReportActivity.class);
+        intent.putExtra("date",newDate.toString());
+        intent.putExtra("animal",mySpinner.getSelectedItem().toString());
+        intent.putExtra("name",cowName.getText().toString());
+        intent.putExtra("gender",c);
+        startActivity(intent);
+    }
+
     public void checkButton(){
         int radioId = radioGroup.getCheckedRadioButtonId();
         radioButton = findViewById(radioId);

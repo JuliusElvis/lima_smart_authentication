@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
@@ -96,6 +98,23 @@ public class DocDisplayActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        //inflater.inflate(R.menu.menu_main,menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id==R.id.edit_details){
+            Toast.makeText(getApplicationContext(),"Touched",Toast.LENGTH_SHORT).show();
+            openDocRegActivity();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void openDocRegActivity(){
+        Intent intent = new Intent(this,verifyDoctor.class);
+        startActivity(intent);
     }
 }

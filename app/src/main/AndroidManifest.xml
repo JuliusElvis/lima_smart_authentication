@@ -4,6 +4,9 @@
     package="com.example.limasmart">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +19,15 @@
         android:theme="@style/Theme.LimaSmart"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".profileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".diseaseDisplay"
+            android:exported="false" />
+        <activity
+            android:name=".HealthActivity"
+            android:exported="false" />
         <activity
             android:name=".DocUpdateDetails"
             android:exported="false" />

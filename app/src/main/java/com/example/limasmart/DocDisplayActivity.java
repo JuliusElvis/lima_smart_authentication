@@ -37,11 +37,14 @@ public class DocDisplayActivity extends AppCompatActivity {
     private Adapter adapter;
     private ApiInterface apiInterface;
     ProgressBar progressBar;
+    private Adapter.RecyclerViewClickListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc_display);
+
+        setOnClickListener();
 
         progressBar = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycler);
@@ -53,6 +56,17 @@ public class DocDisplayActivity extends AppCompatActivity {
         fetchUsers("");
     }
 
+    public void setOnClickListener() {
+        listener = new Adapter.RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Intent intent = new Intent(getApplicationContext(),profileActivity.class);
+                intent.putExtra("username",regDocs.get(position).getName());
+                intent.putExtra("address",regDocs.get(position).getAddress());
+                startActivity(intent);
+            }
+        };
+    }
     public void fetchUsers(String key){
         apiInterface = APIClient.getApiClient().create(ApiInterface.class);
         Call<List<registeredDocs>> call = apiInterface.getUser(key);
@@ -61,7 +75,7 @@ public class DocDisplayActivity extends AppCompatActivity {
             public void onResponse(Call<List<registeredDocs>> call, Response<List<registeredDocs>> response) {
                 progressBar.setVisibility(View.GONE);
                 regDocs = response.body();
-                adapter = new Adapter(regDocs, DocDisplayActivity.this);
+                adapter = new Adapter(regDocs, DocDisplayActivity.this,listener);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }

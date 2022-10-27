@@ -17,6 +17,7 @@ public class HomeActivity extends AppCompatActivity {
 
         vetReg = findViewById(R.id.vetReg);
         animalCalendar = findViewById(R.id.animalCalendar);
+        healthCheck = findViewById(R.id.healthCheck);
 
         vetReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +33,13 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        healthCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHealthActivity();
+            }
+        });
+
 
     }
 
@@ -42,6 +50,11 @@ public class HomeActivity extends AppCompatActivity {
 
     public void openCalendarActivity(){
         Intent intent = new Intent(this,calendarActivity.class);
+        startActivity(intent);
+    }
+
+    public void openHealthActivity(){
+        Intent intent = new Intent(this,HealthActivity.class);
         startActivity(intent);
     }
 

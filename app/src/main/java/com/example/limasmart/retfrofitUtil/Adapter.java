@@ -18,10 +18,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder>{
 
     private List<registeredDocs> regDocs;
     private Context context;
+    private RecyclerViewClickListener listener;
 
-    public Adapter(List<registeredDocs> regDocs, Context context) {
+    public Adapter(List<registeredDocs> regDocs, Context context, RecyclerViewClickListener listener) {
         this.regDocs = regDocs;
         this.context = context;
+        this.listener=listener;
     }
 
     @NonNull
@@ -47,7 +49,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder>{
         return regDocs.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    //removes static
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView name, address,qualification;
 
@@ -56,6 +59,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder>{
             name = itemView.findViewById(R.id.name);
             address = itemView.findViewById(R.id.address);
             qualification = itemView.findViewById(R.id.qualification);
+
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            //listener.onClick(itemView, getAbsoluteAdapterPosition());
+            listener.onClick(view,getAdapterPosition());
+        }
+    }
+
+    public interface RecyclerViewClickListener{
+        void onClick(View view, int position);
     }
 }

@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class HomeActivity extends AppCompatActivity {
-    CardView animalCalendar,vetReg,healthCheck,help;
+    CardView animalCalendar,vetReg,healthCheck,more;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +58,11 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
-        finish();
+    public void onBackPressed(){
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
+
     }
 }

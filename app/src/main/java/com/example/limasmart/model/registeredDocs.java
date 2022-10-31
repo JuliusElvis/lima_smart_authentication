@@ -6,7 +6,7 @@ public class registeredDocs {
     @SerializedName("id") private int id;
     @SerializedName("name") private String name;
     @SerializedName("address") private String address;
-    @SerializedName("qualification") private String qualification;
+    @SerializedName("locality") private String locality;
 
     public int getId() {
         return id;
@@ -20,7 +20,7 @@ public class registeredDocs {
         return address;
     }
 
-    public String getQualification() {
-        return qualification;
+    public String getLocality() {
+        return locality;
     }
 }

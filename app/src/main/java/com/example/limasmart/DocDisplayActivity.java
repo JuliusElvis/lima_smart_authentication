@@ -37,7 +37,8 @@ public class DocDisplayActivity extends AppCompatActivity {
     private Adapter adapter;
     private ApiInterface apiInterface;
     ProgressBar progressBar;
-    private Adapter.RecyclerViewClickListener listener;
+    private Adapter.RecyclerViewClickListener listener,listener1;
+    String name = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,8 @@ public class DocDisplayActivity extends AppCompatActivity {
 
         fetchUsers("");
     }
+
+
 
     public void setOnClickListener() {
         listener = new Adapter.RecyclerViewClickListener() {
@@ -131,4 +134,6 @@ public class DocDisplayActivity extends AppCompatActivity {
         Intent intent = new Intent(this,verifyDoctor.class);
         startActivity(intent);
     }
+
+
 }

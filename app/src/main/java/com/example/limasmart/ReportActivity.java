@@ -41,7 +41,7 @@ public class ReportActivity extends AppCompatActivity {
             st34,st35,st36,st37,st38,st39,st40;
     //final strings
     String sw,sp,sp1,sp2;
-    Bitmap bmp,bmpScale;
+    //Bitmap bmp,bmpScale;
     int pageWidth=1200;
 
     @Override
@@ -69,8 +69,9 @@ public class ReportActivity extends AppCompatActivity {
         tv18 = findViewById(R.id.textView18);
         //searchDoc = findViewById(R.id.btnSearchDoc);
         getReport = findViewById(R.id.button);
-        bmp = BitmapFactory.decodeResource(getResources(), R.drawable.farm);
-        bmpScale = Bitmap.createScaledBitmap(bmp,1200,540,false);
+        //bmp = BitmapFactory.decodeResource(getResources(), R.drawable.farm);
+        //bmpScale = Bitmap.createScaledBitmap(bmp,1200,540,false);
+        //bmpScale = Bitmap.createScaledBitmap(bmp,721,721,false);
 
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
@@ -137,7 +138,6 @@ public class ReportActivity extends AppCompatActivity {
         getReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "report failed", Toast.LENGTH_SHORT).show();
                 PdfDocument pdfDocument = new PdfDocument();
                 Paint myPaint = new Paint();
                 Paint titlePaint = new Paint();
@@ -146,7 +146,7 @@ public class ReportActivity extends AppCompatActivity {
                 PdfDocument.Page myPage1 = pdfDocument.startPage(myPageinfo);
                 Canvas canvas = myPage1.getCanvas();
 
-                canvas.drawBitmap(bmpScale,0,0,myPaint);
+                //canvas.drawBitmap(bmpScale,0,0,myPaint);
                 titlePaint.setTextAlign(Paint.Align.CENTER);
                 titlePaint.setTypeface(Typeface.create(Typeface.DEFAULT,Typeface.BOLD));
                 titlePaint.setTextSize(70);

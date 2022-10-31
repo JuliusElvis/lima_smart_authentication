@@ -84,4 +84,7 @@
 
     <string name="password_validator">Password must have one numerical, one lowercase, one uppercase,
         a special symbol and length between 8 and 20</string>
+
+    <string name="Phone">Phone</string>
+    <string name="locality">Kenya</string>
 </resources>

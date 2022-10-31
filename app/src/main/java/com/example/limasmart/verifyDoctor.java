@@ -16,6 +16,7 @@ public class verifyDoctor extends AppCompatActivity {
     EditText regNo;
     Button button;
     public String result = "";
+    String name,reg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,9 @@ public class verifyDoctor extends AppCompatActivity {
         regNo = findViewById(R.id.verifyReg);
         button = findViewById(R.id.btnVerifyReg);
 
+        //reg = regNo.getText().toString();
+
+
 
 
 
@@ -33,6 +37,7 @@ public class verifyDoctor extends AppCompatActivity {
             public void onClick(View view) {
                 String reg;
                 reg = regNo.getText().toString();
+                name = getVetName(reg);
                 if (reg.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Enter your registration number", Toast.LENGTH_SHORT).show();
                 }else {
@@ -53,8 +58,9 @@ public class verifyDoctor extends AppCompatActivity {
                                 if (putData.onComplete()) {
                                     String result = putData.getResult();
                                     if (result.equals("Verification Success")){
-                                        Toast.makeText(getApplicationContext(), "Verification Success", Toast.LENGTH_SHORT).show();
-                                        openDocRegActivity();
+                                        //Toast.makeText(getApplicationContext(), "Verification Success", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), name, Toast.LENGTH_SHORT).show();
+                                        openDocRegActivity(name,reg);
                                     }else{
                                         Toast.makeText(getApplicationContext(), "Verification failed", Toast.LENGTH_SHORT).show();
                                     }
@@ -68,12 +74,9 @@ public class verifyDoctor extends AppCompatActivity {
 
 
     }
-    public void openDocRegActivity(){
+    public void openDocRegActivity(String name,String reg){
         Intent intent = new Intent(this,DocUpdateDetails.class);
-        String reg,name;
-        reg = regNo.getText().toString();
-        name = getVetName(reg);
-
+        //String reg;
         intent.putExtra("reg_no",reg);
         intent.putExtra("vet_name",name);
         startActivity(intent);
